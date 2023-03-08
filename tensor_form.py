@@ -28,7 +28,7 @@ def Gaussian_Wave_Packet(k, sigma, miu, x):
     return wavelet
 
 
-ks = torch.arange(20, 200, 25)
+ks = torch.arange(20, 200, 45)
 ss = torch.arange(0.1, 1.8, 0.3)
 ms = torch.arange(2, 9, 1.5)
 xs = torch.linspace(0, 10, 6000)
@@ -41,7 +41,7 @@ fig.text(
 
 ax1 = plt.subplot(2, 2, 1)
 for i in range(len(ms)):
-    ax1.plot(xs, res[3, 5, i, :].abs())  # "格式控制字符串"="颜色"+"点型"+"线型"
+    ax1.plot(xs, res[3, 2, i, :].abs())  # "格式控制字符串"="颜色"+"点型"+"线型"
 # ax1.set_ylim(bottom=-5, top=5)
 ax1.set_title("Centers changing")
 
@@ -53,7 +53,7 @@ ax2.set_title("$\sigma$ changing")
 
 ax3 = plt.subplot(2, 1, 2)
 for i in range(len(ks)):
-    ax3.plot(xs, res[i, 3, 2, :].real)
+    ax3.plot(xs, res[i, 3, 2, :].real, alpha=1-0.22*i)
 # ax3.set_xlim(left=0, right=3)
 ax3.set_title("Wave-vector changing")
 
